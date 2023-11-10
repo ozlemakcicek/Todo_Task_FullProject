@@ -39,11 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    #my_apps:
-    'todo',
-    # third_party:
+
+    # third party apps:
     'rest_framework',
+    'corsheaders',
+    'drf_yasg',
+    'debug_toolbar',
+
+    # my_apps:
+    'todo',
 ]
 
 MIDDLEWARE = [

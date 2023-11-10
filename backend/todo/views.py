@@ -27,7 +27,7 @@ def todo_list_create(request):
         return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
 
 
-        
+
 @api_view(["GET", "PUT", "DELETE"])
 def todo_get_delete_update(request, pk):
     todo = get_object_or_404(ToDoItem, id=pk)
@@ -43,9 +43,11 @@ def todo_get_delete_update(request, pk):
     elif request.method == "DELETE":
         # Soft delete
         todo.is_deleted = True
-        todo.save()
+        todo.save()     # soft delete yapmak istedigimiz icin .delete degil de save yap dedik.normalde heryerden silmek istersek delete derdik
         message = {"message": "Successfully soft deleted!"}
         return Response(message, status=HTTP_204_NO_CONTENT)
+
+
 @api_view(['GET', 'POST'])
 def task_groups(request):
     if request.method == 'GET':
@@ -58,6 +60,7 @@ def task_groups(request):
             serializer.save()
             return Response(serializer.data, status=HTTP_201_CREATED)
         return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
+        
 @api_view(["GET", "PUT", "DELETE"])
 def task_group_get_update_delete(request, pk):
     task_group = get_object_or_404(TaskGroup, id=pk)
