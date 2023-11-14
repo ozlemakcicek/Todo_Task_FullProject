@@ -6,3 +6,7 @@ urlpatterns = [
     path("api/groups/", task_groups),
     path("api/groups/<int:pk>", task_group_get_update_delete),
 ]
+
+
+
+
