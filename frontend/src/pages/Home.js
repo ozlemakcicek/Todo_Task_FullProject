@@ -42,4 +42,4 @@ getData();
   )
 }
 
-export default Home
+export default Home;
